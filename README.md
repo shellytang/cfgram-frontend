@@ -57,6 +57,9 @@
   * This should contain functionality that allows the user to be able to add additional galleries
   * Style your application to meet the mockup specifications provided in the `wireframes` directory of this repo
 
+## Caveats
+  * use lecture-27-angular-auth NOT lecture-29-angular-crud as starter code for this lab. Feel free to use the lecture 29 code as a reference, but *DO NOT* turn in lecture 29 code as your own.
+
 ## Bonus
   * **2pts:** Add the ability to **delete** a gallery
     * this should have a button that will trigger a **DELETE** request to the `slugram` API and remove the gallery from the page
