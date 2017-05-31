@@ -23,11 +23,8 @@
     * this should include all of the production environment configurations used in lecture code
   * `karma.config.js`
 
-## Clone
-  * Clone, setup, and run the `slugram-backend` application in order for your angular app to communicate with the server
-  * [slugram-backend](https://github.com/slugbyte/slugram-backend)
-    * **note** - this application should be running on the `staging` branch
-    * **note** - **DO NOT** include this application with your assignment submission
+## Slugram Backend
+  * Use the same backend slugram server that you set up for lab27
 
 ## Description
   * Create these directories to organize your code:
@@ -58,7 +55,7 @@
   * Style your application to meet the mockup specifications provided in the `wireframes` directory of this repo
 
 ## Caveats
-  * use lecture-27-angular-auth NOT lecture-29-angular-crud as starter code for this lab. Feel free to use the lecture 29 code as a reference, but *DO NOT* turn in lecture 29 code as your own.
+  * use lecture-27-angular-auth NOT lecture-28-angular-crud as starter code for this lab. Feel free to use the lecture 28 code as a reference, but *DO NOT* turn in lecture 28 code as your own.
 
 ## Bonus
   * **2pts:** Add the ability to **delete** a gallery
