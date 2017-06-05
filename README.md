@@ -53,10 +53,12 @@
   saved galleries (name and description)
   * This should contain functionality that allows the user to be able to add additional galleries
   * Style your application to meet the mockup specifications provided in the `wireframes` directory of this repo
-  * Add the ability to **delete** a gallery
-    * this should have a button that will trigger a **DELETE** request to the `slugram` API and remove the gallery from the page
-  * Add the ability to **update** a gallery
 
 ## Caveats
 * this should trigger a **PUT** request to the `slugram` API and remove update the gallery in the database and on the page
   * use lecture-27-angular-auth NOT lecture-28-angular-crud as starter code for this lab. Feel free to use the lecture 28 code as a reference, but *DO NOT* turn in lecture 28 code as your own.
+
+## Bonus
+* Add the ability to **delete** a gallery
+  * this should have a button that will trigger a **DELETE** request to the `slugram` API and remove the gallery from the page
+* Add the ability to **update** a gallery
