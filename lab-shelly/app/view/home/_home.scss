@@ -2,9 +2,19 @@
 
 .home {
 
-  h2 {
-    padding-top: $gutter-sm;
-    text-align: center;
+  .gallery-list {
+
+    .gallery-item {
+      display: inline-block;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: $gutter-std;
+
+      span {
+        display: block;
+        line-height: 1.2em;
+      }
+    }
   }
 
 }
