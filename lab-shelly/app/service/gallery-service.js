@@ -4,7 +4,7 @@ module.exports = [
   '$q',
   '$log',
   '$http',
-  '$authService',
+  'authService',
   function($q, $log, $http, authService) {
     $log.debug('Gallery Service');
 
@@ -12,7 +12,7 @@ module.exports = [
     service.galleries = [];
 
     service.createGallery = (gallery) => {
-      $log.debug('service.createGallery');
+      $log.debug('#service.createGallery');
 
       return authService.getToken()
       .then(token => {

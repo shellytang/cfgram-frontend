@@ -4,18 +4,31 @@ require('./_login.scss');
 
 module.exports = {
   template: require('./login.html'),
-  controller: ['$log', '$location', 'authService', LoginController],
   controllerAs: 'loginCtrl',
-};
+  controller: [
+    '$log',
+    '$location',
+    '$window',
+    'authService',
+    function($log, $location, $window, authService) {
+      this.$onInit = () => {
+        $log.debug('LoginController');
 
-function LoginController($log, $location, authService) {
-  this.$onInit = () => {
-    $log.debug('LoginController');
-    // authService.getToken().then(() => $location.url('/home'));
-    this.login = function() {
-      $log.log('loginCtrl.login()');
-      authService.login(this.user)
-      .then(() => $location.url('/home'));
-    };
-  };
-}
+        if(!$window.localStorage.token) {
+          authService.getToken()
+          .then(
+            () => $location.url('/home'),
+            () => $location.url('/signup')
+          );
+        }
+
+        this.login = function() {
+          $log.log('loginCtrl.login()');
+
+          authService.login(this.user)
+          .then(() => $location.url('/home'));
+        };
+      };
+    },
+  ],
+};

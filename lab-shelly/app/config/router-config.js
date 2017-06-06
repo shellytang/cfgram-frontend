@@ -1,12 +1,10 @@
 'use strict';
 
-module.exports = ['$stateProvider', '$urlRouterProvider', routerConfig];
-
-function routerConfig($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.when('', '/');
-  $urlRouterProvider.when('/', '/join#signup');
-  $urlRouterProvider.when('/signup', '/join#signup');
-  $urlRouterProvider.when('/login', '/join#login');
+module.exports = ['$stateProvider', '$urlServiceProvider', function($stateProvider, $urlServiceProvider) {
+  $urlServiceProvider.rules.when('', '/join#signup');
+  $urlServiceProvider.rules.when('/', '/join#signup');
+  $urlServiceProvider.rules.when('/signup', '/join#signup');
+  $urlServiceProvider.rules.when('/login', '/join#login');
 
   let routes = [
     {
@@ -24,6 +22,5 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'landingCtrl',
     },
   ];
-
   routes.forEach($stateProvider.state);
-}
+}];
