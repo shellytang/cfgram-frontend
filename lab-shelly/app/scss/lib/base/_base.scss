@@ -1,0 +1,51 @@
+@import '../theme/theme';
+
+html, body {
+  font-family: $font-std;
+  font-size: 1.1em;
+  color: $black;
+  background: $brand-secondary;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+a {
+  color: $black;
+  padding: $gutter-sm;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+  color: $brand-primary*1.5;
+  }
+}
+
+.input-std {
+  display: block;
+  width: 80%;
+  margin: $gutter-sm 0 $gutter-sm 5%;
+  padding: 2%;
+  border-radius: .40em;
+}
+
+.btn-std {
+  width: $box-std;
+  background: $brand-primary;
+  color: $white;
+  border: none;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 350ms all;
+
+  &:hover {
+    background: $brand-primary/2;
+  }
+}
