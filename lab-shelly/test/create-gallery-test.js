@@ -44,7 +44,7 @@ describe('Create Gallery Component', function() {
       this.$httpBackend.expectPOST(expectUrl, expectGallery, expectHeaders)
         .respond(200, expectGallery);
       this.createGalleryCtrl.gallery = expectGallery;
-      console.log('WHAT', this.createGalleryCtrl);
+  
       expect(this.createGalleryCtrl.createGallery).to.not.throw();
 
       done();

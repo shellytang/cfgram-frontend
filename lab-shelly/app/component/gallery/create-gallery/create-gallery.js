@@ -22,14 +22,6 @@ module.exports = {
         .catch(err => $log.error(err));
       };
 
-      this.createGallery = function() {
-        galleryService.createGallery(this.gallery)
-        .then( () => {
-          this.gallery.name = null;
-          this.gallery.desc = null;
-        });
-      };
-
     };
   }],
 };
