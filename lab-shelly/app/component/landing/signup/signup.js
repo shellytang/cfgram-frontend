@@ -25,9 +25,10 @@ module.exports = {
         this.signup = function(user) {
           $log.debug('signupCtrl.signup()');
           authService.signup(user)
-          .then(() => $location.url('/home'));
+          .then(() => $location.url('/home'),
+          err => console.error(err));
         };
-        
+
       };
     },
   ],
