@@ -3,7 +3,6 @@
 const expect = require('chai').expect
 
 describe('Auth Service', function() {
-
   beforeEach(done => {
     angular.mock.module('cfgram');
     angular.mock.inject(($httpBackend, $window, $rootScope, authService) => {
@@ -14,7 +13,6 @@ describe('Auth Service', function() {
       done();
     });
   });
-
 
   describe('authService.getToken()', () => {
     it('should return a token', done => {
