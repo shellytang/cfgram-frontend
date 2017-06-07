@@ -9,8 +9,7 @@
 
   <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
 
-  <div ng-if="!galleryItemCtrl.showEditGallery">
     <button
     ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
-  </div>
+    <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
 </li>
