@@ -7,6 +7,7 @@ module.exports = {
   controllerAs: 'deleteGalleryCtrl',
   bindings: {
     gallery: '<',
+    onDelete: '&',
   },
   controller: ['$log', 'galleryService', function($log, galleryService) {
     this.$onInit = () => {
@@ -15,6 +16,7 @@ module.exports = {
 
       this.deleteGallery = () => {
         galleryService.deleteGallery(this.gallery._id)
+        // this.fetchGalleries()
         .then(
           () => $log.log('gallery deleted'),
           err => $log.error(err));

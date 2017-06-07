@@ -6,7 +6,9 @@
       <span>description: {{ gallery.desc }}</span>
       <span>id: {{ gallery._id }}</span>
     </li> -->
-    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+    <gallery-item
+      ng-repeat="item in homeCtrl.galleries"
+      gallery="item"></gallery-item>
   </ul>
 
 </section>

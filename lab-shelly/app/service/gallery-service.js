@@ -133,9 +133,11 @@ module.exports = [
       .then(res => {
         service.galleries.forEach((ele, index) => {
           if(ele._id === res.data._id) {
-            service.galleries.splice([index],1); //remove that item from array
+            service.galleries.splice(index, 1); //remove that item from array
           }
         });
+        console.log('THE DATA', res.data);
+        console.log('galleries', service.galleries);
         return res.data;
       })
       .catch(err => {

@@ -6,7 +6,7 @@ module.exports = {
   template: require('./edit-gallery.html'),
   controllerAs: 'editGalleryCtrl',
   bindings: {
-    gallery: '<'
+    gallery: '<',
   },
   controller: ['$log', 'galleryService', function($log, galleryService) {
     this.$onInit = () => {
@@ -16,8 +16,7 @@ module.exports = {
         galleryService.updateGallery(this.gallery._id, this.gallery)
         .then(
           () => $log.log('updated successfully'),
-          err => $log.error(err),
-        );
+          err => $log.error(err));
       };
     };
   }],

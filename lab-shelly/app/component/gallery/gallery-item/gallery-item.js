@@ -7,6 +7,7 @@ module.exports = {
   controllerAs: 'galleryItemCtrl',
   bindings: {
     gallery: '<',
+    deleted: '&',
   },
   controller: ['$log', 'galleryService', function($log, galleryService) {
     $log.debug('Gallery Item Controller');
