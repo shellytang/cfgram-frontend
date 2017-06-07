@@ -44,7 +44,6 @@ module.exports = [
 
       return authService.getToken()
       .then(token => {
-
         let config = {
           headers: {
             Accept: 'application/json',
@@ -62,6 +61,33 @@ module.exports = [
       .catch(err => {
         $log.error(err.message);
         $q.reject(err);
+      });
+    };
+
+    service.updateGallery = (galleryId, gallery) => {
+      $log.debug('#galleryService.updateGallery');
+
+      return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/gallery/${galleryId}`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        return $http.put(url, gallery, config);
+      })
+      .then(res => {
+        service.galleries.forEach((ele, index) => {
+          if(ele._id === res.data._id) service.galleries[index] = res.data;
+        });
+        return res.data;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        return $q.reject(err);
       });
     };
     return service;
