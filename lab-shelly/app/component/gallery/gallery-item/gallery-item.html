@@ -1,4 +1,4 @@
-<li>
+<li class="gallery-item">
   <div ng-if="!galleryItemCtrl.showEditGallery">
     <div>
       <span>name: {{ galleryItemCtrl.gallery.name }}</span>
@@ -11,6 +11,7 @@
 
     <button
     ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
+    <button ng-click="galleryItemCtrl.deleteGallery()">delete</button>
 
-  <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
+  <div>
 </li>

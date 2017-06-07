@@ -131,14 +131,14 @@ module.exports = [
         return $http.delete(url, config);
       })
       .then(res => {
-        service.galleries.forEach((ele, index) => {
-          if(ele._id === res.data._id) {
-            service.galleries.splice(index, 1); //remove that item from array
+        service.galleries.filter((ele, index) => {
+          if(ele._id === galleryId) {
+            service.galleries.splice(index, 1);
           }
         });
         console.log('THE DATA', res.data);
         console.log('galleries', service.galleries);
-        return res.data;
+        return;
       })
       .catch(err => {
         $log.error(err.message);

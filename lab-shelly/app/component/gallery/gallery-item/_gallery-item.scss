@@ -1,1 +1,15 @@
-// @import '../scss/lib/theme/theme';
+@import '../scss/lib/theme/theme';
+
+.gallery-item {
+
+  display: inline-block;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: $gutter-std/1.5;
+
+  span {
+    display: block;
+    line-height: 1.5em;
+  }
+
+}

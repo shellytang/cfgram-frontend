@@ -32,7 +32,7 @@ module.exports = [
       };
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-      this.fetchGalleries();
+      return this.fetchGalleries();
 
     };
   },
