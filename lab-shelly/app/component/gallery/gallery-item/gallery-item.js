@@ -17,10 +17,11 @@ module.exports = {
 
       this.deleteGallery = () => {
 
-        galleryService.deleteGallery(this.gallery._id, this.gallery)
+        galleryService.deleteGallery(this.gallery._id)
         .then(
           () => $log.log('gallery deleted'),
-          err => $log.error(err));
+          err => $log.error(err)
+        );
       };
     };
 

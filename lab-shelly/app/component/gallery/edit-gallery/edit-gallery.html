@@ -4,12 +4,12 @@
     ng-submit="editGalleryCtrl.updateGallery()"
     novalidate>
     <fieldset>
-      <label for="name">name</label>
-      <input name="name" type="text" ng-model="editGalleryCtrl.gallery.name">
+      <label for="name">name:</label>
+      <input name="name" type="text" ng-model="editGalleryCtrl.gallery.name" class="input-sm">
     </fieldset>
     <fieldset>
-      <label for="description">description</label>
-      <input name="description" type="text" ng-model="editGalleryCtrl.gallery.desc">
+      <label for="description">description:</label>
+      <input name="description" type="text" ng-model="editGalleryCtrl.gallery.desc" class="input-sm">
     </fieldset>
 
     <button type="submit" name="submit update" class="btn-sm">update</button>

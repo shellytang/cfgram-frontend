@@ -136,8 +136,6 @@ module.exports = [
             service.galleries.splice(index, 1);
           }
         });
-        console.log('THE DATA', res.data);
-        console.log('galleries', service.galleries);
         return;
       })
       .catch(err => {
