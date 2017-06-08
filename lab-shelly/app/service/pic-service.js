@@ -45,6 +45,37 @@ module.exports = [
         }
       );
     };
+
+    service.deletePic = function(gallery, picId) {
+      $log.debug('#picService.uploadPic');
+
+      return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${picId}`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        return $http.delete(url, config);
+      })
+      .then(() => {
+
+        gallery.pics.filter((ele, index) => {
+          if(ele._id === picId) {
+            gallery.pics.splice(index, 1);
+          }
+        });
+        return;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    };
+
     return service;
   },
+
 ];
