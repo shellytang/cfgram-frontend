@@ -8,7 +8,7 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
-  controller: ['$log', 'galleryService', function($log, galleryService) {
+  controller: ['$log', '$rootScope', 'galleryService', function($log, $rootScope, galleryService) {
     this.$onInit = () => {
 
       $log.debug('Gallery Item Controller');

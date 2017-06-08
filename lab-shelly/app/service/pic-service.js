@@ -61,7 +61,7 @@ module.exports = [
         return $http.delete(url, config);
       })
       .then(() => {
-
+        
         gallery.pics.filter((ele, index) => {
           if(ele._id === picId) {
             gallery.pics.splice(index, 1);
