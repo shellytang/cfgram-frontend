@@ -27,6 +27,7 @@ module.exports = [
         return galleryService.fetchGalleries()
         .then(galleries => {
           this.galleries = galleries;
+          this.currentGallery = this.galleries[0];
         })
         .catch(err => $log.error(err));
       };
