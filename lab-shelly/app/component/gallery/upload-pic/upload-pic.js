@@ -1,6 +1,6 @@
 'use strict';
 
-// require('./_upload-pic.scss')
+require('./_upload-pic.scss');
 
 module.exports = {
   template: require('./upload-pic.html'),

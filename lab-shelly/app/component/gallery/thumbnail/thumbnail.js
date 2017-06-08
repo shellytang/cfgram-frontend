@@ -1,6 +1,6 @@
 'use strict';
 
-//require('./_thumbnail.scss');
+require('./_thumbnail.scss');
 
 module.exports = {
   template: require('./thumbnail.html'),
