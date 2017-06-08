@@ -29,7 +29,7 @@ describe('Create Gallery Component', function() {
 
   describe('#createGalleryCtrl.createGallery()', () => {
 
-    it.only('should make a valid POST request for all galleries', done => {
+    it('should make a valid POST request for all galleries', done => {
       let expectUrl = 'http://localhost:3000/api/gallery';
       let expectHeaders = {
         Accept: 'application/json',
