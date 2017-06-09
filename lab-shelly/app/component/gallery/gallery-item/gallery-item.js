@@ -18,7 +18,7 @@ module.exports = {
       this.makeCurrentGallery = () => {
         $log.log('run the thing!');
         $rootScope.$emit('updateCurrentGallery', this.gallery._id);
-      }
+      };
 
       this.deleteGallery = () => {
 
