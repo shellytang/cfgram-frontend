@@ -105,18 +105,20 @@ module.exports = [
         };
         return $http.delete(url, config);
       })
-      .then(() => {
-        service.galleries.filter((ele, index) => {
-          if(ele._id === galleryId) {
-            service.galleries.splice(index, 1);
-          }
-        });
-        return;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
-      });
+      .then(
+        res => {
+          service.galleries.filter((ele, index) => {
+            if(ele._id === galleryId) {
+              service.galleries.splice(index, 1);
+            }
+          });
+          return res.data;
+        },
+        err => {
+          $log.error(err.message);
+          return $q.reject(err);
+        }
+      );
     };
 
     return service;
