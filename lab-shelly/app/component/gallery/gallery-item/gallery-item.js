@@ -15,18 +15,14 @@ module.exports = {
 
       this.showEditGallery = false;
 
-      this.makeCurrentGallery = () => {
-        $log.log('run the thing!');
-        $rootScope.$emit('updateCurrentGallery', this.gallery._id);
-      };
+      // this.makeCurrentGallery = () => {
+      //   $log.log('run the thing!');
+      //   $rootScope.$emit('updateCurrentGallery', this.gallery._id);
+      // };
 
       this.deleteGallery = () => {
-
-        galleryService.deleteGallery(this.gallery._id)
-        .then(
-          () => $log.log('gallery deleted'),
-          err => $log.error(err)
-        );
+        $log.debug('#galleryItemCtrl.deleteGallery');
+        galleryService.deleteGallery(this.gallery._id);
       };
     };
 

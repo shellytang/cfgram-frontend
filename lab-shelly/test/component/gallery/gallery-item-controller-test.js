@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-describe.only('Gallery Item Controller', function() {
+describe('Gallery Item Controller', function() {
 
   beforeEach(done => {
     angular.mock.module('cfgram');
@@ -45,23 +45,11 @@ describe.only('Gallery Item Controller', function() {
     done();
   });
 
-  // describe('test', () => {
-  //   it('should pass', done => {
-  //     expect(true).to.equal(true);
-  //     done();
-  //   });
-  // });
-
-  describe.only('Default properties', () => {
+  describe('Default properties', () => {
 
     it('should have a showEditGallery property', done => {
       expect(this.galleryItemCtrl).to.have.a.property('showEditGallery');
       expect(this.galleryItemCtrl.showEditGallery).to.be.false;
-      done();
-    });
-
-    it('should have a #makeCurrentGallery method', done => {
-      expect(this.galleryItemCtrl.makeCurrentGallery).to.be.instanceOf(Function);
       done();
     });
 
@@ -74,8 +62,31 @@ describe.only('Gallery Item Controller', function() {
 
   describe('Functional methods', () => {
 
+    beforeEach(done => {
+      this.expectUrl = 'http://localhost:3000/api/gallery/1234',
+      this.expectHeaders = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.$window.localStorage.token}`,
+      },
+      done();
+    });
+
+    afterEach(done => {
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+      done();
+    });
+
+    describe('#deleteGallery', () => {
+      it('should delete the gallery', done => {
+        this.$httpBackend.expectDELETE(this.expectUrl, this.expectHeaders)
+          .respond(204);
+
+        this.galleryItemCtrl.deleteGallery();
+        done();
+      });
+    });
+
   });
-
-
 
 });

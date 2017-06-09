@@ -63,13 +63,11 @@ module.exports = [
       .then(
         () => {
           $log.log('deleted the pic');
-
-          for(let i = 0; i < gallery.pics.length; i++) {
-            if(gallery.pics[i]._id === pic._id) {
-              gallery.pics.splice(i, 1);
-              break;
+          gallery.pics.filter((ele, index) => {
+            if(ele._id === pic._id) {
+              gallery.pics.splice(index, 1);
             }
-          }
+          });
         },
         err => {
           $log.error(err.message);

@@ -31,11 +31,11 @@ describe('Thumbnail Controller', function() {
       this.scope = this.$rootScope.$new();
 
       this.thumbnailCtrl = this.$componentController(
-        'thumbnail', //component name
-        { scope: this.scope,  //locals, creating own new scope for that component
-          picService: this.picService, //locals, passing service down to that component
+        'thumbnail',
+        { scope: this.scope,
+          picService: this.picService,
         },
-        this.mockBindings //bindings
+        this.mockBindings
       );
 
       this.thumbnailCtrl.$onInit();
