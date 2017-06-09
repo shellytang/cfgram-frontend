@@ -64,7 +64,7 @@ describe('Thumbnail Controller', function() {
       this.expectHeaders = {
         'Authorization': `Bearer ${this.$window.localStorage.token}`,
         'Accept': 'application/json, text/plain, */*',
-      },
+      };
       done();
     });
 
