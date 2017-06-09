@@ -15,11 +15,6 @@ module.exports = {
 
       this.showEditGallery = false;
 
-      // this.makeCurrentGallery = () => {
-      //   $log.log('run the thing!');
-      //   $rootScope.$emit('updateCurrentGallery', this.gallery._id);
-      // };
-
       this.deleteGallery = () => {
         $log.debug('#galleryItemCtrl.deleteGallery');
         galleryService.deleteGallery(this.gallery._id);
