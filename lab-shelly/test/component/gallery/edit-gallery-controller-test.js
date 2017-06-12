@@ -60,7 +60,7 @@ describe('Edit Gallery Component', function() {
 
     describe('#editGalleryCtrl.updateGallery', () => {
 
-      it.only('should make a valid PUT request', done => {
+      it('should make a valid PUT request', done => {
         let expectUrl = 'http://localhost:3000/api/gallery/1234';
         let expectHeaders = {
           'Accept': 'application/json',
@@ -72,7 +72,7 @@ describe('Edit Gallery Component', function() {
           gallery: {
             name: 'update name',
             desc: 'update desc',
-            pics: [],
+            // pics: [],
             _id: '1234',
           },
         };
@@ -84,10 +84,10 @@ describe('Edit Gallery Component', function() {
         };
 
         this.editGalleryCtrl = this.$componentController('editGallery', null, mockBindings);
-        // this.$httpBackend.getPUT(expectUrl, mockUpdateGallery, expectHeaders)
-        //   .respond(200);
-        this.$httpBackend.whenPUT(expectUrl, mockUpdateGallery, expectHeaders)
+        this.$httpBackend.expectPUT(expectUrl, mockUpdateGallery, expectHeaders)
           .respond(200);
+        this.$httpBackend.whenPUT(expectUrl, mockUpdateGallery, expectHeaders)
+          .respond(200, mockUpdateGallery);
         this.editGalleryCtrl.$onInit();
         this.editGalleryCtrl.updateGallery();
         expect(this.editGalleryCtrl.updateGallery).to.not.throw();
