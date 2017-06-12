@@ -84,8 +84,8 @@ module.exports = [
           if(ele._id === res.data._id) service.galleries[index] = res.data;
         });
         return res.data;
-      })
-      .catch(err => {
+      },
+      err => {
         $log.error(err.message);
         return $q.reject(err);
       });

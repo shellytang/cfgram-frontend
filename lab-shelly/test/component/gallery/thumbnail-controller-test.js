@@ -3,6 +3,7 @@
 const expect = require('chai').expect;
 
 describe('Thumbnail Controller', function() {
+
   beforeEach(done => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
@@ -29,15 +30,7 @@ describe('Thumbnail Controller', function() {
 
       this.$window.localStorage.token = 'test token';
       this.scope = this.$rootScope.$new();
-
-      this.thumbnailCtrl = this.$componentController(
-        'thumbnail',
-        { scope: this.scope,
-          picService: this.picService,
-        },
-        this.mockBindings
-      );
-
+      this.thumbnailCtrl = this.$componentController('thumbnail', null, this.mockBindings);
       this.thumbnailCtrl.$onInit();
       done();
     });
@@ -53,6 +46,7 @@ describe('Thumbnail Controller', function() {
   describe('Default properties', () => {
     it('should have a #deletePic method', done => {
       expect(this.thumbnailCtrl.deletePic).to.be.instanceOf(Function);
+      this.$rootScope.$apply();
       done();
     });
   });
@@ -78,7 +72,6 @@ describe('Thumbnail Controller', function() {
       it('should accept a valid delete request', done => {
         this.$httpBackend.expectDELETE(this.expectUrl, this.expectHeaders)
         .respond(204);
-
         this.thumbnailCtrl.deletePic();
         done();
       });

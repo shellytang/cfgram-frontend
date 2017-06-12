@@ -33,6 +33,7 @@ describe('Create Gallery Component', function() {
       expect(this.createGalleryCtrl).to.have.property('gallery');
       expect(this.createGalleryCtrl.gallery).to.be.an.instanceOf(Object);
       expect(this.createGalleryCtrl.gallery).to.be.empty;
+      this.$rootScope.$apply();
       done();
     });
   });

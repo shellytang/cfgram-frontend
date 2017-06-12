@@ -17,14 +17,7 @@ describe('Home Controller ', function() {
       this.scope = this.$rootScope.$new();
       this.$window.localStorage.token = 'test token';
 
-      this.homeCtrl = this.$controller(
-        'HomeController',
-        {
-          scope: this.scope,
-          galleryService: this.galleryService,
-        }
-      );
-
+      this.homeCtrl = this.$controller('HomeController');
       this.homeCtrl.$onInit();
       done();
     });
@@ -80,7 +73,6 @@ describe('Home Controller ', function() {
       it('should return an array of galleries', done => {
         this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders)
           .respond(200, this.expectGalleries);
-
         done();
 
       });
