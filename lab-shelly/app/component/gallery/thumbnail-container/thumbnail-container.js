@@ -8,4 +8,14 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
+  controller: [
+    '$log', function($log) {
+      this.$onInit = () => {
+
+        $log.debug('thumbnailContainerCtrl');
+        this.title = 'Pictures';
+        
+      };
+    },
+  ],
 };
