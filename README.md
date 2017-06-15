@@ -1,64 +1,48 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 28 - Angular CRUD
+![cf](https://i.imgur.com/7v5ASc8.png) Lab 34 - Deployment
 ======
 
-## To Submit this Assignment
-  * create a fork of this repository
-  * push to your repository
-  * submit a pull request to this repository
-  * submit a link to your PR in canvas
-  * write a question and observation on canvas
+## Deployment Steps
+  * **Code Updates**
+    * add the following to your `package.json` file
+      * `"engines": { "node": "4.4.7" }`
+      * `"start": "node server.js"`
+      * `"heroku-postbuild": webpack -p --progress`
+    * install `express` as a dependency in your application
+      * `npm i -S express`
+    * create a simple server for your application
+    ``` javascript
+    'use strict'
 
-## Include
-  * `.eslintrc`
-  * `.babelrc`
-  * `.gitignore`
-  * `package.json`
-    * create an npm `build` script for running `webpack`
-    * create an npm `build-watch` script for running `webpack-dev-server --inline --hot`
-    * create an npm `test` script for running karma and all associated tests
-    * create an npm `test-watch` script for running karma on file system changes
-    * create an npm `lint` script for linting your JS with `eslint`
-  * **ignore the build directory**
-  * `webpack.config.js`
-    * this should include all of the production environment configurations used in lecture code
-  * `karma.config.js`
+    const express = require('express')
+    const app = express()
+    const PORT = process.env.PORT || 8080
 
-## Slugram Backend
-  * Use the same backend slugram server that you set up for lab27
+    app.use(express.static(`${__dirname}/build`))
 
-## Description
-  * Create these directories to organize your code:
-    * app
-    * app/config
-    * app/view
-    * app/view/home
-    * app/view/landing
-    * app/scss
-    * app/scss/lib
-    * app/scss/lib/base
-    * app/scss/lib/layout
-    * app/scss/lib/theme
-    * app/service
-    * app/component
-    * app/component/gallery
-    * app/component/gallery/create-gallery
-    * app/component/landing
-    * app/component/navbar
-  * include a **main.scss**
-  * include an `.scss` partial for your `create-gallery` and `navbar` components
-  * style your application to meet the `create-gallery` mockup provided in the `wireframes` directory of this repo
+    app.listen(PORT, () => console.log('server up:', PORT))
+    ```
+    * include a simple `.travis.yml` file for running your `karma` tests
+      * be sure you run the `--single-run` script
+    ``` javascript
+    language: node_js
+    node_js:
+      - 'stable'
+    sudo: required
+    before_script: npm i
+    script:
+      - npm run test
+      ```
 
-## Functional Requirements
-  * Create a component for displaying a user's
-  saved galleries (name and description)
-  * This should contain functionality that allows the user to be able to add additional galleries
-  * Style your application to meet the mockup specifications provided in the `wireframes` directory of this repo
+  * **Travis Admin Config**
+    * enable your application in Travis
+    * include your `API_URL` environment variable
 
-## Caveats
-* this should trigger a **PUT** request to the `slugram` API and remove update the gallery in the database and on the page
-  * use lecture-27-angular-auth NOT lecture-28-angular-crud as starter code for this lab. Feel free to use the lecture 28 code as a reference, but *DO NOT* turn in lecture 28 code as your own.
-
-## Bonus
-* Add the ability to **delete** a gallery
-  * this should have a button that will trigger a **DELETE** request to the `slugram` API and remove the gallery from the page
-* Add the ability to **update** a gallery
+  * **Heroku Admin Config**
+    * create a new application in Heroku
+    * include your `API_URL` and `NODE_ENV` environment variables
+      * this can be found in the "Settings" tab
+      * *reminder:* these are known as **config vars** in Heroku
+    * connect your application to GitHub
+      * this can be found in the "Deploy" tab
+    * enable automatic deployments
+      * this should only be enabled for `staging` branch deployments
